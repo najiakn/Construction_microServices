@@ -7,11 +7,11 @@ eureka:
 
 
 server:
-  port: 8090
+  port: 8070
 
 spring:
   application:
-    name: projet
+    name: tache
   config:
     import: optional:configserver:http://localhost:8888
   datasource:
