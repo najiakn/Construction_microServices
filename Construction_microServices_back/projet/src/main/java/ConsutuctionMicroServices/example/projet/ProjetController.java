@@ -50,7 +50,7 @@ public class ProjetController {
 }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/projet/{id}")
     public ResponseEntity<Projet> getProjetById(@PathVariable("id") int id) {
         Projet projet = projetService.getprojetById(id);
         if (projet != null) {
@@ -59,4 +59,9 @@ public class ProjetController {
             return ResponseEntity.notFound().build();
         }
     }
+//    @GetMapping("/{id}")
+//    public fullProjetResponse projetWithTaches(@PathVariable int id){
+//        return projetService.projetWithTaches(id);
+//    }
+
 }

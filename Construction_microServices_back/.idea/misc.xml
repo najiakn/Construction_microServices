@@ -9,7 +9,13 @@
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
         <option value="$PROJECT_DIR$/projet/pom.xml" />
         <option value="$PROJECT_DIR$/tache/pom.xml" />
+        <option value="$PROJECT_DIR$/ressource/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/ressource/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="PWA">

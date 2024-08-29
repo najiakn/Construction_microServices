@@ -4,6 +4,7 @@ package ConsutuctionMicroServices.example.tache;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,11 +13,19 @@ import java.util.Optional;
 public class TacheServiceImpl implements TacheService {
     @Autowired
     private TacheRepo tacheRepo;
-
+    @Autowired
+private RestTemplate restTemplate;
 
     @Override
-    public Tache create (Tache tache){
+    public Tache create (Tache tache , int id_projet){
+        try {
+            restTemplate.getForObject("http://localhost:8090/api/projets/projet/" +id_projet, Object.class);
+        }catch (Exception e){
+            throw  new IllegalArgumentException("projet non trouve :" +e);
+        }
+        tache.setId_projet(id_projet);
       return   tacheRepo.save(tache);
+
 
     }
     @Override
@@ -60,4 +69,9 @@ public class TacheServiceImpl implements TacheService {
             throw new EntityNotFoundException("Projet not found with id: " + id);
         }
     }
+
+//    @Override
+//    public List<Tache> tachesByIdProjet(int id) {
+//        return tacheRepo.findById_projet(id);
+//    }
 }

@@ -23,3 +23,7 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+application:
+  config:
+    taches-url: http://localhost:8070/api/taches

@@ -8,4 +8,7 @@ public interface ProjetService {
     List<Projet> getAll();
     Projet getprojetById(int id);
     Projet update (int id,Projet projet);
+
+   // fullProjetResponse projetWithTaches(int id);
+
 }

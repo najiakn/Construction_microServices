@@ -14,10 +14,10 @@ public class TacheController {
     private TacheService tacheService;
 
 
-    @PostMapping("/create_tache")
-    public ResponseEntity<?> createTache(@RequestBody Tache tache) {
+    @PostMapping("/create_tache/{id_projet}")
+    public ResponseEntity<?> createTache(@RequestBody Tache tache , @PathVariable int id_projet) {
         try {
-            var tache1 = tacheService.create(tache);
+            var tache1 = tacheService.create(tache ,id_projet );
             return ResponseEntity.status(HttpStatus.CREATED).body(tache1);
 
         } catch (Exception e) {
@@ -38,6 +38,10 @@ public class TacheController {
         return  ResponseEntity.ok(taches);
 
 }
+//    @GetMapping("/projet/{id}")
+//    public List<Tache> tachesByProjet(@PathVariable int id){
+//        return tacheService.tachesByIdProjet(id);
+//    }
 
 @PutMapping("/{id}")
     public ResponseEntity<Tache>update(@PathVariable("id") int id , @RequestBody Tache tache){

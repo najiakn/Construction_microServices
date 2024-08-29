@@ -14,6 +14,9 @@
         <module name="discovery" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ressource" target="22" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -21,6 +24,7 @@
       <module name="discovery" options="-parameters" />
       <module name="gatewat" options="-parameters" />
       <module name="projet" options="-parameters" />
+      <module name="ressource" options="-parameters" />
       <module name="tache" options="-parameters" />
     </option>
   </component>
