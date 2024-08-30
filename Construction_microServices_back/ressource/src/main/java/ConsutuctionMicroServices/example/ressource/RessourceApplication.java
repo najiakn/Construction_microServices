@@ -1,13 +1,13 @@
-package ConsutuctionMicroServices.example.gatewat;
+package ConsutuctionMicroServices.example.ressource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GatewatApplication {
+public class RessourceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GatewatApplication.class, args);
+		SpringApplication.run(RessourceApplication.class, args);
 	}
 
 }

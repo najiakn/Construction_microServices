@@ -1,10 +1,10 @@
-package ConsutuctionMicroServices.example.config_server;
+package ConsutuctionMicroServices.example.ressource;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ConfigServerApplicationTests {
+class RessourceApplicationTests {
 
 	@Test
 	void contextLoads() {
