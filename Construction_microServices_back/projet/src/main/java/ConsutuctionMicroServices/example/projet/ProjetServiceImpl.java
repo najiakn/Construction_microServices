@@ -4,6 +4,7 @@ package ConsutuctionMicroServices.example.projet;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.List;
@@ -13,8 +14,10 @@ import java.util.Optional;
 public class ProjetServiceImpl implements ProjetService {
     @Autowired
     private ProjetRepo projetRepo;
+
     @Autowired
-     TacheClient tacheClient;
+    private RestTemplate restTemplate;
+
 
     @Override
     public Projet create (Projet projet){
@@ -23,6 +26,18 @@ public class ProjetServiceImpl implements ProjetService {
     }
     @Override
   public  void delete (int id ){
+
+        // URL du service Tache
+        String url = "http://localhost:8070/api/taches/projet/" + id;
+
+        try {
+            // D'abord, supprimer les tâches liées à ce projet
+            restTemplate.delete(url);
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la suppression des tâches pour l'ID du projet : " + id, e);
+        }
+
+        // Ensuite, supprimer le projet
         projetRepo.deleteById(id);
     }
 

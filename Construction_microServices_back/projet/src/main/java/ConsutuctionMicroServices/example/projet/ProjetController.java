@@ -25,12 +25,19 @@ public class ProjetController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProjet(@PathVariable("id") int id) {
-        projetService.delete(id);
-       return  ResponseEntity.noContent().build();
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> deleteProjet(@PathVariable("id") int id) {
+//        projetService.delete(id);
+//       return  ResponseEntity.noContent().build();
+//
+//}
 
-}
+    // Supprimer un projet existant
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProject(@PathVariable int id) {
+        projetService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 
 @GetMapping
     public  ResponseEntity<List<Projet>>getAllProjets(){
