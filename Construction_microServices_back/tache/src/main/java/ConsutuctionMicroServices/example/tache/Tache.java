@@ -1,9 +1,6 @@
 package ConsutuctionMicroServices.example.tache;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
@@ -23,6 +20,6 @@ public class Tache
     private  Date date_debut;
     private Date date_fin;
     private String status;
-    private int id_projet;
+    private int idProjet;
 
 }
