@@ -4,26 +4,20 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
-
-
 server:
-  port: 8090
+  port: 8040
 
 spring:
   application:
-    name: projet
+    name: ressource
   config:
     import: optional:configserver:http://localhost:8888
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/projetdb
+    url: jdbc:postgresql://localhost:5432/ressources
     username: postgres
     password: 1234
   jpa:
     hibernate:
-      ddl-auto: create
+         ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-  flyway:
-   locations: classpath:db/migration
-   baseline-on-migrate: true

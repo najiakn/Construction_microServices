@@ -23,7 +23,7 @@ private RestTemplate restTemplate;
         }catch (Exception e){
             throw  new IllegalArgumentException("projet non trouve :" +e);
         }
-        tache.setId_projet(id_projet);
+        tache.setIdProjet(id_projet);
       return   tacheRepo.save(tache);
 
 
@@ -50,6 +50,14 @@ private RestTemplate restTemplate;
 
 
     @Override
+    public List<Tache> getTachesByIdProjet(int idProjet){
+        List<Tache>taches= tacheRepo.findTachesByIdProjet(idProjet);
+
+
+        return taches;
+    }
+
+    @Override
     public Tache update( int id , Tache tache) {
         Optional<Tache> tacheOptional = tacheRepo.findById(id);
         if (tacheOptional.isPresent()) {
@@ -59,7 +67,7 @@ private RestTemplate restTemplate;
             tache1.setStatus(tache1.getStatus());
             tache1.setDate_debut(tache1.getDate_debut());
             tache1.setDate_fin(tache1.getDate_fin());
-            tache1.setId_projet(tache1.getId_projet());
+            tache1.setIdProjet(tache1.getIdProjet());
             Tache updateTache= tacheRepo.save(tache);
 
             return updateTache;
@@ -67,6 +75,17 @@ private RestTemplate restTemplate;
        else  {
 
             throw new EntityNotFoundException("Projet not found with id: " + id);
+        }
+    }
+
+    @Override
+    public void deleteTachesByProjetId(int id_projet) {
+        // Récupérer la liste des tâches liées au projet
+        List<Tache> taches = tacheRepo.findTachesByIdProjet(id_projet);
+
+        // Si la liste n'est pas vide, supprimer toutes les tâches
+        if (taches != null && !taches.isEmpty()) {
+            tacheRepo.deleteAll(taches);
         }
     }
 

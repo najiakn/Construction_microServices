@@ -8,5 +8,10 @@ public interface TacheService {
     List<Tache> getAll();
     Tache getTacheById(int id);
     Tache update (int id,Tache tache);
+     void deleteTachesByProjetId(int id_projet);
  //   List<Tache> tachesByIdProjet(int id);
+   List<Tache>  getTachesByIdProjet(int idProjet);
+
+
+
 }

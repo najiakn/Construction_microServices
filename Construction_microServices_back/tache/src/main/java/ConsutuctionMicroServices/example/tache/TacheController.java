@@ -15,9 +15,9 @@ public class TacheController {
 
 
     @PostMapping("/create_tache/{id_projet}")
-    public ResponseEntity<?> createTache(@RequestBody Tache tache , @PathVariable int id_projet) {
+    public ResponseEntity<?> createTache(@RequestBody Tache tache, @PathVariable int id_projet) {
         try {
-            var tache1 = tacheService.create(tache ,id_projet );
+            var tache1 = tacheService.create(tache, id_projet);
             return ResponseEntity.status(HttpStatus.CREATED).body(tache1);
 
         } catch (Exception e) {
@@ -28,20 +28,16 @@ public class TacheController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTache(@PathVariable("id") int id) {
         tacheService.delete(id);
-       return  ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build();
 
-}
+    }
 
-@GetMapping
-    public  ResponseEntity<List<Tache>>getAllTaches(){
-        List <Tache> taches =tacheService.getAll();
-        return  ResponseEntity.ok(taches);
 
-}
 //    @GetMapping("/projet/{id}")
 //    public List<Tache> tachesByProjet(@PathVariable int id){
 //        return tacheService.tachesByIdProjet(id);
-//    }
+//
+//}
 
 @PutMapping("/{id}")
     public ResponseEntity<Tache>update(@PathVariable("id") int id , @RequestBody Tache tache){
@@ -62,5 +58,28 @@ public class TacheController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+
+    @GetMapping
+    public ResponseEntity<List<Tache>> getAllTaches() {
+        List<Tache> taches = tacheService.getAll();
+        return ResponseEntity.ok(taches);
+
+    }
+
+    @GetMapping("/projet/{idProjet}")
+    public ResponseEntity<List<Tache>> getTachesByProjet(@PathVariable("idProjet") int idProjet) {
+       List<Tache> taches= tacheService.getTachesByIdProjet(idProjet);
+        return ResponseEntity.ok(taches);
+
+
+        }
+
+
+    @DeleteMapping("/projet/{id_projet}")
+    public void deleteTachesByProjetId(@PathVariable int id_projet) {
+        // Appel du service pour supprimer les tâches
+        tacheService.deleteTachesByProjetId(id_projet);
     }
 }
