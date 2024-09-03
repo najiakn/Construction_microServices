@@ -21,5 +21,4 @@ public class Tache
     private Date date_fin;
     private String status;
     private int idProjet;
-
 }
