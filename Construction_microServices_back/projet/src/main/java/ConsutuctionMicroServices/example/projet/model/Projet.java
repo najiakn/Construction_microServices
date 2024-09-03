@@ -1,4 +1,4 @@
-package ConsutuctionMicroServices.example.projet;
+package ConsutuctionMicroServices.example.projet.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

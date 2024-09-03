@@ -1,12 +1,13 @@
-package ConsutuctionMicroServices.example.projet;
+package ConsutuctionMicroServices.example.projet.service;
 
 
+import ConsutuctionMicroServices.example.projet.repository.ProjetRepo;
+import ConsutuctionMicroServices.example.projet.model.Projet;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,4 +1,6 @@
-package ConsutuctionMicroServices.example.projet;
+package ConsutuctionMicroServices.example.projet.service;
+
+import ConsutuctionMicroServices.example.projet.model.Projet;
 
 import java.util.List;
 
